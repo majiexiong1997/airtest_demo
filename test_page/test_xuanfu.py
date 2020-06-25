@@ -1,5 +1,4 @@
-from main import Main
-
+from main_page.main import Main
 
 
 class Testxuanfu:
@@ -8,7 +7,6 @@ class Testxuanfu:
 
     def test_xuanfu(self):
         self.main = Main()
-
         self.main.login().xuanfu()
 
 
