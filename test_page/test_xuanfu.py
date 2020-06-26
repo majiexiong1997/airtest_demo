@@ -6,10 +6,11 @@ class Testxuanfu:
         self.main = Main()
 
     def test_xuanfu(self):
-        self.main = Main()
-        self.main.login().xuanfu()
+        self.main = Main().login()
+    def test_gonggao(self):
+        self.main = Main().gonggao().gonggao()
 
 
 
 if __name__ == '__main__':
-    Testxuanfu().test_xuanfu()
+    Testxuanfu().test_gonggao()
