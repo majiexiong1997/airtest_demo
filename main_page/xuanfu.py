@@ -21,6 +21,7 @@ class gonggao(MainPage):
 
 
 
+
 if __name__ == '__main__':
     gonggao().gonggao()
 
