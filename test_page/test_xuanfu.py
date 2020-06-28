@@ -1,3 +1,8 @@
+from center.main_page import MainPage
+
+import pytest
+
+
 from main_page.main import Main
 
 
