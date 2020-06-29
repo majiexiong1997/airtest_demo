@@ -2,7 +2,7 @@ from airtest.core.api import *
 from airtest.core.api import connect_device
 from center.main_page import MainPage
 from airtest.core.android.adb import *
-class adb_collect:
+class get_phone:
     def __init__(self,):
         self.phone_size = []
     def get_phone_size(self,device):
@@ -27,6 +27,7 @@ class adb_collect:
         return self.phone_size
     def wait(self):
         pass
+
 
 
 
