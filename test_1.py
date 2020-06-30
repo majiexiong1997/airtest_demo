@@ -5,13 +5,11 @@ from center.get_phone_c import get_phone
 from airtest.core.android import adb
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\adb.py
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\android.py
-main_phone = "Android:///"
-device = connect_device(main_phone)
-print(get_phone().get_phone_size(device))
-
-print(device.get_display_info())
-
-
+# from airtest.report.report import simple_report
+# simple_report(__file__,logpath=r'./center/log',output='./center/log/log.html')
+# list_zb = [i for i in range(0,100)]
+num1 = 0
+for i in range(0,101): num1 = num1 + i ;print(num1)
 
 
 #

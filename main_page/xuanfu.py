@@ -1,24 +1,25 @@
 from center.main_page import MainPage
 from airtest.core.api import *
 
-from center.get_phone_c import get_phone
+
 class login(MainPage):
-    # def quanxian(self):
-    #     touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-    #                    resolution=(self.height, self.width)))
-    #     touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-    #                    resolution=(self.height, self.width)))
-    #     touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-    #                    resolution=(self.height, self.width)))
-    #     touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-    #                    resolution=(self.height, self.width)))
-    #     touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-    #                    resolution=(self.height, self.width)))
-    #     stop_app(self.main_package)
-    #     start_app(self.main_package)
+    def quanxian(self):
+        for i in range(0,5):
+            touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
+                           resolution=(self.height, self.width)))
+            # touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
+            #                resolution=(self.height, self.width)))
+            # touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
+            #                resolution=(self.height, self.width)))
+            # touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
+            #                resolution=(self.height, self.width)))
+            # touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
+            #                resolution=(self.height, self.width)))
+
 
     def login_sec(self):
         '''已有账号登录'''
+        self.find("ButtonLogin").click()
         self.find("2").click()
         self.find("ButtonChoose").click()
         self.find("ButtonEnterGame").click()
@@ -40,7 +41,7 @@ class login(MainPage):
         touch(Template(r"./test_img/tpl1593330282492.png", record_pos=(-0.114, 0.165), resolution=(self.height, self.width)))
         self.find("ButtonLogin").click()
         self.find_text("更 新").click()
-        text_title = self.find("TextTitle").wait(100).get_text()
+        text_title = self.find("TextTitle").wait_for_appearance().get_text()
         if assert_equal(text_title,'选择服务器线路','是否进入选服') == None:
             self.find("2").click()
             self.find("ButtonChoose").click()
@@ -49,6 +50,7 @@ class login(MainPage):
             self.find("ButtonRole").click()
             self.find("ImageMapBG").click()
             self.find("InteractiveRegion").click()
+
 
     def sec_face(self):
         '''二级界面'''
@@ -66,6 +68,7 @@ class login(MainPage):
             snapshot()
             time.sleep(5)
             self.find("ButtonClose").click()
+
         #cw
         # self.find(tisheng).click()
         # self.find("1").click()
@@ -80,15 +83,10 @@ class gonggao(MainPage):
             self.find("ButtonOk").click()
 
 
-
-
-
-
-
-
 if __name__ == '__main__':
 
     login().sec_face()
+
 
 
 
