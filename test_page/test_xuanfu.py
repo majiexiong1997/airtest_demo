@@ -9,7 +9,6 @@ from main_page.main import Main
 class Testxuanfu:
     def setup(self):
         self.main = Main()
-
     def test_login_frist(self):
         self.main = Main().login_frist().login_frist()
     def test_login_sec(self):
@@ -18,9 +17,14 @@ class Testxuanfu:
         self.main = Main().gonggao().gonggao()
     def test_sec_face(self):
         self.main = Main().sec_face().sec_face()
+    def test_skill(self):
+        self.main = Main().skill().test_skill()
+    def teardown(self):
+        pass
+        # MainPage().stop_app()
 
 
 
 
 if __name__ == '__main__':
-    Testxuanfu().test_login_sec()
+    Testxuanfu().test_skill()
