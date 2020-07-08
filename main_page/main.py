@@ -1,8 +1,9 @@
 from center.main_page import MainPage
+from main_page.more_activity import more_activity
 from main_page.rank import rank
 from main_page.skill import skill
-from main_page.xuanfu import gonggao
-from main_page.xuanfu import *
+from main_page.login import *
+from main_page.sec_face import *
 from main_page.bag_store import *
 
 method = method_cls()
@@ -17,10 +18,10 @@ class Main(MainPage):
     #公告
     def gonggao(self):
         method.find("ButtonNotice").click()
-        return gonggao()
+        return login()
     #二级界面
     def sec_face(self):
-        return login()
+        return sec_face()
     #背包
     def bag_store(self):
         method.find('ButtonBag').click()
@@ -32,3 +33,6 @@ class Main(MainPage):
     def rank(self):
         method.find('ButtonRank').click()
         return rank()
+    def more_activity(self):
+        method.find('ButtonMoreActivity').click()
+        return more_activity()

@@ -1,0 +1,22 @@
+list_sec = ['ButtonSkill','ButtonQuest','ButtonMount','ButtonRank','ButtonMail',
+                    'ButtonSetting','ButtonRemake','ButtonStrengthen','ButtonSocialSystem']
+        list_sec_one = ['ButtonBag','ButtonFriend','ButtonShopMall','ButtonHandbook','ButtonMoreActivity']
+
+#二级界面参数
+list_sec:
+  - 'ButtonSkill'
+  - 'ButtonQuest'
+  - 'ButtonMount'
+  - 'ButtonRank'
+  - 'ButtonMail'
+  - 'ButtonSetting'
+  - 'ButtonRemake'
+  - 'ButtonStrengthen'
+  - 'ButtonSocialSystem'
+
+list_sec_one:
+  - 'ButtonBag'
+  - 'ButtonFriend'
+  - 'ButtonShopMall'
+  - 'ButtonHandbook'
+  - 'ButtonMoreActivity'

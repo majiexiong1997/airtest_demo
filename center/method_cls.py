@@ -14,9 +14,6 @@ class method_cls(MainPage):
 
 
     # 判断是否能找到当前UI并给出下一步操作
-    def exites_find(self, locator):
-        return self.poco(locator).exists()
-
 
     # 等待元素出现
     def wait_start_find(self, locator):
@@ -34,6 +31,11 @@ class method_cls(MainPage):
         start_pt = (self.width * 0.7, self.height * 0.7)
         end_pt = (self.width * 0.7, self.height * 0.3)
         swipe(start_pt, end_pt)
+    def up_swipe_for_rank(self):
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.3, self.height * 0.7)
+        end_pt = (self.width * 0.3, self.height * 0.3)
+        swipe(start_pt, end_pt)
 
 
     # 下滑         可根据实际游戏情况修改
@@ -49,6 +51,11 @@ class method_cls(MainPage):
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height / 2)
         end_pt = (self.width * 0.7, self.height / 2)
+        swipe(start_pt, end_pt)
+    def left_swipe_for_rank(self):
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.3, self.height * 0.15)
+        end_pt = (self.width * 0.7, self.height / 0.15)
         swipe(start_pt, end_pt)
 
 
@@ -98,5 +105,7 @@ class method_cls(MainPage):
     def screeen_size(self):
         self.width,self.height = self.device.get_current_resolution()
         return self.width,self.height
+
+
 
 

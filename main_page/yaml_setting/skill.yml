@@ -1,0 +1,24 @@
+toggle_list = ["ToggleJingMale","ToggleShouMale","ToggleWanMale",
+                       "ToggleYaoMale","ToggleTuiMale","ToggleJiaoMale"]
+viewport_list = ["ButtonFight","ButtonProperty","ButtonTips","ButtonAutoPut","ButtonTrain",
+                         "ButtonOpenBag"]
+
+
+
+#战斗技能参数
+toggle_list:
+  - "ToggleJingMale"
+  - "ToggleShouMale"
+  - "ToggleWanMale"
+  - "ToggleYaoMale"
+  - "ToggleTuiMale"
+  - "ToggleJiaoMale"
+#战斗技能参数
+viewport_list:
+  - "ButtonFight"
+  - "ButtonProperty"
+  - "ButtonTips"
+  - "ButtonAutoPut"
+  - "ButtonTrain"
+  - "ButtonOpenBag"
+

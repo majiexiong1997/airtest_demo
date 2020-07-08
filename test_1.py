@@ -1,4 +1,6 @@
 import time
+
+from airtest.core.android.adb import ADB
 from airtest.core.api import *
 from airtest.core.api import connect_device
 import yaml
@@ -14,11 +16,21 @@ from center.method_cls import *
 
 # a = method_cls().screeen_size()[0]
 # print(a)#
-from main_page.main import method
-
-bag_sets = method.yaml_load(open(r'main_page/yaml_setting\bag.yml'))
-for bag_set in bag_sets['bag']:
-    print(bag_set)
+# from main_page.main import method
+# try:
+#     tests = method.find("ScrollView").child("ScrollPanel").children()
+#     for test in tests:
+#         print('元素寻找不到')
+# except:
+#     print('111')
+# class test(MainPage):
+#     def test_print(self):
+#         print(self.device)
+#         pass
+method = method_cls()
+referrals_btn = method.find("TabRecommend").child('Tab').offspring('Label').get_text()
+print(referrals_btn)
+method.assert_type(referrals_btn, '推\n荐', '当前点击按钮检查')
 # if device.check_app('shangyoo.noahmobile.com') == False:
 #     pass
 #     print('error')
