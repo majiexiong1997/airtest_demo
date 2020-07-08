@@ -11,9 +11,9 @@ from airtest.core.android.android import Android
 
 
 class MainPage:
-    main_package = "shangyoo.noahmobile.com"
+    main_package = "xxx"
     main_phone = "Android:///"
-    package_path = r'C:\Users\majiexiong\Desktop\shangyoo.noahmobile.com_15.2.291.apk'
+    package_path = r'xxx'
 
     def __init__(self):
         adb = ADB()
