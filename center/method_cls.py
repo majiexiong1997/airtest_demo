@@ -21,6 +21,9 @@ class method_cls(MainPage):
 
     def find_long_click(self,*element):
         self.find(*element).long_click()
+
+    def find_chirden(self,*element):
+        self.find(*element).children()
     # 查找当前UI下文字
     def find_text(self, locator):
         return self.poco(text=locator)
