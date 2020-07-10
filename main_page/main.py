@@ -5,6 +5,7 @@ from main_page.skill import skill
 from main_page.login import *
 from main_page.sec_face import *
 from main_page.bag_store import *
+from main_page.group import *
 
 method = method_cls()
 class Main(MainPage):
@@ -34,5 +35,10 @@ class Main(MainPage):
         method.find('ButtonRank').click()
         return rank()
     def more_activity(self):
+        '''更多活动'''
         method.find('ButtonMoreActivity').click()
         return more_activity()
+    def group(self):
+        '''成长'''
+        method.find('ButtonHandbook').click()
+        return group()

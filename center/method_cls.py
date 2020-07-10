@@ -1,13 +1,26 @@
 from airtest.core.api import *
 
 from center.main_page import MainPage
-
+import re
 import yaml
 class method_cls(MainPage):
-    def find(self, locator):
-        return self.poco(locator)
 
+    def find(self,*element):
+        if len(element) == 1:
+            self.poco("{}".format(element[0])).wait_for_appearance()
+            return self.poco("{}".format(element[0]))
+        elif len(element) == 2:
+            self.poco("{}".format(element[0])).child("{}".format(element[1])).wait_for_appearance()
+            return self.poco("{}".format(element[0])).child("{}".format(element[1]))
+        elif len(element) == 3:
+            self.poco("{}".format(element[0])).child("{}".format(element[1])).child("{}".format(element[2])).wait_for_appearance()
+            return self.poco("{}".format(element[0])).child("{}".format(element[1])).child("{}".format(element[2]))
 
+    def find_click(self,*element):
+        self.find(*element).click()
+
+    def find_long_click(self,*element):
+        self.find(*element).long_click()
     # 查找当前UI下文字
     def find_text(self, locator):
         return self.poco(text=locator)
@@ -16,13 +29,6 @@ class method_cls(MainPage):
     # 判断是否能找到当前UI并给出下一步操作
 
     # 等待元素出现
-    def wait_start_find(self, locator):
-        return self.poco(locator).wait_for_appearance()
-
-
-    # 等待元素消失
-    def wait_end_find(self, locator):
-        return self.poco(locator).wait_for_disappearance()
 
 
     # 上滑  以当前屏幕显示效果分宽高，宽从左往右，高从上到下

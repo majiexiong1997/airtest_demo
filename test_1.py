@@ -5,6 +5,7 @@ from airtest.core.api import *
 from airtest.core.api import connect_device
 import yaml
 from airtest.core.android import adb
+from center.main_page import *
 from center.method_cls import *
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\adb.py
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\android.py
@@ -28,9 +29,13 @@ from center.method_cls import *
 #         print(self.device)
 #         pass
 method = method_cls()
-referrals_btn = method.find("TabRecommend").child('Tab').offspring('Label').get_text()
-print(referrals_btn)
-method.assert_type(referrals_btn, '推\n荐', '当前点击按钮检查')
+
+
+method.find("SkillPanel","ScrollLeft")
+
+# <class 'str'>
+# SkillPanel
+
 # if device.check_app('shangyoo.noahmobile.com') == False:
 #     pass
 #     print('error')

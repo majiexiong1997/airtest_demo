@@ -10,7 +10,7 @@ class skill(MainPage):
     def test_skill(self):
         item_num = 0
 
-        method.wait_start_find("TextTitle")
+        method.poco("TextTitle").wait_for_appearance()
         #  技能
         items = method.find("SkillPanel").offspring("ScrollLeft").child("Content").children()
         print(items)
