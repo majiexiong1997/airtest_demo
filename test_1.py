@@ -28,10 +28,10 @@ from center.method_cls import *
 #     def test_print(self):
 #         print(self.device)
 #         pass
-method = method_cls()
-
-
-method.find("SkillPanel","ScrollLeft")
+# method = method_cls()
+#
+#
+# method.find("SkillPanel","ScrollLeft")
 
 # <class 'str'>
 # SkillPanel
@@ -44,6 +44,9 @@ method.find("SkillPanel","ScrollLeft")
 #     device_act = device.get_top_activity_name()
 #     # device.start_app_timing('111', device_act)
 #
+with os.popen('adb shell getprop ro.product.model','r') as p:
+    r = p.read()
+print(r)
 # else:
 #         print('包体已安装到手机中')
 #         device.start_app('shangyoo.noahmobile.com')

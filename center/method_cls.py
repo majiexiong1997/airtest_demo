@@ -5,7 +5,9 @@ import re
 import yaml
 class method_cls(MainPage):
 
+
     def find(self,*element):
+        '''基本方法查找'''
         if len(element) == 1:
             self.poco("{}".format(element[0])).wait_for_appearance()
             return self.poco("{}".format(element[0]))
@@ -17,22 +19,19 @@ class method_cls(MainPage):
             return self.poco("{}".format(element[0])).child("{}".format(element[1])).child("{}".format(element[2]))
 
     def find_click(self,*element):
+        '''基本点击'''
         self.find(*element).click()
 
     def find_long_click(self,*element):
+        '''基本长点击'''
         self.find(*element).long_click()
 
     def find_chirden(self,*element):
+        '''基本查找子节点所有孩子'''
         self.find(*element).children()
-    # 查找当前UI下文字
     def find_text(self, locator):
+        '''查找当前ui下文字'''
         return self.poco(text=locator)
-
-
-    # 判断是否能找到当前UI并给出下一步操作
-
-    # 等待元素出现
-
 
     # 上滑  以当前屏幕显示效果分宽高，宽从左往右，高从上到下
     def up_swipe(self):
