@@ -10,7 +10,7 @@ from center.method_cls import *
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\adb.py
 # C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\airtest\core\android\android.py
 # from airtest.report.report import simple_report
-# simple_report(__file__,logpath=r'./center/log',output='./center/log/log.html')
+
 # list_zb = [i for i in range(0,100)]
 # num1 = 0
 # for i in range(0,101): num1 = num1 + i ;print(num1)

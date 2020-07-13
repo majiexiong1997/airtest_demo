@@ -1,8 +1,9 @@
 from center.main_page import MainPage
-from center.method_cls import *
+from center.self_cls import *
 from airtest.core.api import *
-method = method_cls()
+
 class shop(MainPage):
+
 
     def shop_test(self):
         #纵向标签
@@ -11,10 +12,10 @@ class shop(MainPage):
 
         for y in y_btn:
             print(y)
-            method.find(y).wait_for_appearance()
-            method.find(y).click()
+            self.find(y).wait_for_appearance()
+            self.find(y).click()
             # 横向标签
-            x_btn = method.find("UIShopMallView").child("ToggleLevel2").children()
+            x_btn = self.find("UIShopMallView").child("ToggleLevel2").children()
             if y == "ToggleRecharge":
                 break
             for x in x_btn:
@@ -22,12 +23,12 @@ class shop(MainPage):
                 x.child('Tab').wait_for_appearance()
                 x.child('Tab').click()
                 # 横向子标签
-                x_child_btn = method.find("UIShopMallView").child("ToggleLevel3").children()
+                x_child_btn = self.find("UIShopMallView").child("ToggleLevel3").children()
                 for x_child in x_child_btn:
 
                     x_child.child('Tab').wait_for_appearance()
                     x_child.child('Tab').click()
-                    item_btn = method.find("ScrollView").child("ScrollPanel").children()
+                    item_btn = self.find("ScrollView").child("ScrollPanel").children()
                     # if assert_not_exists(item_btn):
                     #     pass
                     # num = 0
@@ -41,9 +42,9 @@ class shop(MainPage):
                     #     num +=1
                     #
                     #     if num % 8 == 0:
-                    #         method.up_swipe()
+                    #         self.up_swipe()
 
-        moneys = method.find("UIShopMallView").child("ToggleLevel3").children()
+        moneys = self.find("UIShopMallView").child("ToggleLevel3").children()
         for money in moneys:
             money.child('Tab').click()
 
