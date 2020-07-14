@@ -1,13 +1,12 @@
 import logging
-import traceback
 
 from airtest.core.android.adb import ADB
 from airtest.core.api import *
-import os
 from poco.drivers.unity3d import UnityPoco
-from airtest.cli.parser import cli_setup
-from airtest.core.android.android import Android
 from airtest.report.report import simple_report
+
+
+
 
 
 
@@ -18,7 +17,6 @@ class MainPage:
     package_path = r'C:\Users\majiexiong\Desktop\shangyoo.noahmobile.com_15.2.291.apk'
 
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
         adb = ADB()
         device_list = adb.devices()
         deviceNum = len(device_list) >= 1
@@ -83,8 +81,9 @@ class MainPage:
         return self.find(*element).get_text()
 
 
-    # 上滑  以当前屏幕显示效果分宽高，宽从左往右，高从上到下
+
     def up_swipe(self):
+        '''上滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height * 0.7)
         end_pt = (self.width * 0.7, self.height * 0.3)
@@ -95,16 +94,18 @@ class MainPage:
         start_pt = (self.width * 0.3, self.height * 0.7)
         end_pt = (self.width * 0.3, self.height * 0.3)
         swipe(start_pt, end_pt)
-    # 下滑         可根据实际游戏情况修改
+
     def down_swipe(self):
+        '''下滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height * 0.3)
         end_pt = (self.width * 0.7, self.height * 0.7)
         swipe(start_pt, end_pt)
 
 
-    # 左滑         可根据实际游戏情况修改
+
     def left_swipe(self):
+        '''左滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height / 2)
         end_pt = (self.width * 0.7, self.height / 2)
@@ -117,52 +118,63 @@ class MainPage:
         swipe(start_pt, end_pt)
 
 
-    # 右滑         可根据实际游戏情况修改
+
     def right_swipe(self):
+        '''右滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height / 2)
         end_pt = (self.width * 0.3, self.height / 2)
         swipe(start_pt, end_pt)
 
 
-    # 技能上滑
+
     def up_swipe_by_skill(self):
+        '''技能上滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height * 0.7)
         end_pt = (self.width * 0.3, self.height * 0.3)
         swipe(start_pt, end_pt)
 
 
-    # 点击屏幕中央  可根据实际游戏情况修改
+
     def click_center(self):
+        '''点击屏幕中央'''
         self.width, self.height = self.device.get_current_resolution()
 
         self.poco.click([0.1, 0.5])
-    # 停止app
+
     def stop_app(self):
+        '''停止app'''
         stop_app(self.main_package)
 
-    #判断字体是否存在
+
     def assert_type(self, testname, authname, testtitle):
+        '''判断字体是否存在'''
         try:
             assert_equal(testname, authname, testtitle)
         except AssertionError:
             print('文字判定不对,错误字体{}'.format(testname))
-    #判断不存在元素,并创造测试分支
+
     def assert_not_view(self,locator,other_locator):
+        '''判断不存在元素,并创造测试分支'''
         try:
             assert_not_exists(locator,'元素{},寻找不到，忽略此步骤'.format(locator))
         except :
             self.poco.click(other_locator)
-    #判断元素是否存在
+
     def assert_view(self,locator):
+        '''判断元素是否存在'''
         try:
             assert_exists(locator,'该元素{},寻找不到'.format(locator))
         except:
             print('没有找到元素{}'.format(locator))
+
     def screeen_size(self):
+        '''获取当前屏幕尺寸'''
         self.width,self.height = self.device.get_current_resolution()
         return self.width,self.height
+
+
 
 
 

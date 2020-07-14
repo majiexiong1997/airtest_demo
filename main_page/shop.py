@@ -1,5 +1,4 @@
 from center.main_page import MainPage
-from center.self_cls import *
 from airtest.core.api import *
 
 class shop(MainPage):
