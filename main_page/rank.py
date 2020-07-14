@@ -5,27 +5,26 @@ from airtest.core.helper import G
 
 
 
-
+from main_page.yaml_setting import yaml_load
 
 # <airtest.core.android.android.Android object at 0x0A142970>
 class rank(MainPage):
 
     print(MainPage)
     def rank_test(self):
-        rank_list = ["TabPersonal","TabCorps","TabActivity","TabCopy"]
+        rank_list = yaml_load.yaml_load('./yaml_setting/rank.yml')
 
-
-        for ranks in rank_list:
+        for ranks in rank_list['rank_list']:
             print(ranks)
             self.find(ranks).click()
-            toggles = self.find("ScrollViewToggle").child("Content").children()
+            toggles = self.find_chirden("ScrollViewToggle","Content")
             num_toggle = 0
             for toggle in toggles:
                 num_tab = 0
                 print(toggle)
                 toggle.child("ImageBG").wait_for_appearance()
                 toggle.child("ImageBG").click()
-                view_tabs = self.find("ScrollViewTab").child("Content").children()
+                view_tabs = self.find_chirden("ScrollViewTab","Content")
                 num_toggle+=1
                 if num_toggle == 8 :
                     print(num_toggle)

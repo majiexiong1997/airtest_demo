@@ -6,11 +6,6 @@ from poco.drivers.unity3d import UnityPoco
 from airtest.report.report import simple_report
 
 
-
-
-
-
-
 class MainPage:
     main_package = "shangyoo.noahmobile.com"
     main_phone = "Android:///"
@@ -24,12 +19,9 @@ class MainPage:
         for i in range(len(device_list)):
             self.device = connect_device(self.main_phone)
 
-
-
-            auto_setup(__file__, logdir=False, devices=[self.main_phone+device_list[i][0]])
+            auto_setup(__file__, logdir=False, devices=[self.main_phone + device_list[i][0]])
             self.check_app()
             self.setting()
-
 
     def check_app(self):
         list_app = self.device.list_app()
@@ -48,12 +40,14 @@ class MainPage:
 
     def setting(self):
 
-            ST.FIND_TIMEOUT = 30  # 隐式等待
-            ST.SNAPSHOT_QUALITY = 70  # 图片精度
+        ST.FIND_TIMEOUT = 30  # 隐式等待
+        ST.SNAPSHOT_QUALITY = 70  # 图片精度
+
     def report(self):
-        simple_report(__file__,logpath=r'C:\Users\majiexiong\PycharmProjects\airtest_demo\center\log',
+        simple_report(__file__, logpath=r'C:\Users\majiexiong\PycharmProjects\airtest_demo\center\log',
                       output=r'C:\Users\majiexiong\PycharmProjects\airtest_demo\center\log\log.html')
-    def find(self,*element):
+
+    def find(self, *element):
         '''基本方法查找'''
         if len(element) == 1:
             self.poco("{}".format(element[0])).wait_for_appearance()
@@ -62,25 +56,25 @@ class MainPage:
             self.poco("{}".format(element[0])).child("{}".format(element[1])).wait_for_appearance()
             return self.poco("{}".format(element[0])).child("{}".format(element[1]))
         elif len(element) == 3:
-            self.poco("{}".format(element[0])).child("{}".format(element[1])).child("{}".format(element[2])).wait_for_appearance()
+            self.poco("{}".format(element[0])).child("{}".format(element[1])).child(
+                "{}".format(element[2])).wait_for_appearance()
             return self.poco("{}".format(element[0])).child("{}".format(element[1])).child("{}".format(element[2]))
 
-    def find_click(self,*element):
+    def find_click(self, *element):
         '''基本点击'''
         return self.find(*element).click()
 
-    def find_long_click(self,*element):
+    def find_long_click(self, *element):
         '''基本长点击'''
         return self.find(*element).long_click()
 
-    def find_chirden(self,*element):
+    def find_chirden(self, *element):
         '''基本查找子节点所有孩子'''
         return self.find(*element).children()
+
     def find_text(self, *element):
         '''查找当前ui下文字'''
         return self.find(*element).get_text()
-
-
 
     def up_swipe(self):
         '''上滑'''
@@ -88,6 +82,7 @@ class MainPage:
         start_pt = (self.width * 0.7, self.height * 0.7)
         end_pt = (self.width * 0.7, self.height * 0.3)
         swipe(start_pt, end_pt)
+
     def up_swipe_for_rank(self):
         '''排行榜上滑'''
         self.width, self.height = self.device.get_current_resolution()
@@ -102,22 +97,19 @@ class MainPage:
         end_pt = (self.width * 0.7, self.height * 0.7)
         swipe(start_pt, end_pt)
 
-
-
     def left_swipe(self):
         '''左滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height / 2)
         end_pt = (self.width * 0.7, self.height / 2)
         swipe(start_pt, end_pt)
+
     def left_swipe_for_rank(self):
         '''排行榜左滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height * 0.15)
         end_pt = (self.width * 0.7, self.height / 0.15)
         swipe(start_pt, end_pt)
-
-
 
     def right_swipe(self):
         '''右滑'''
@@ -126,16 +118,12 @@ class MainPage:
         end_pt = (self.width * 0.3, self.height / 2)
         swipe(start_pt, end_pt)
 
-
-
     def up_swipe_by_skill(self):
         '''技能上滑'''
         self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height * 0.7)
         end_pt = (self.width * 0.3, self.height * 0.3)
         swipe(start_pt, end_pt)
-
-
 
     def click_center(self):
         '''点击屏幕中央'''
@@ -147,7 +135,6 @@ class MainPage:
         '''停止app'''
         stop_app(self.main_package)
 
-
     def assert_type(self, testname, authname, testtitle):
         '''判断字体是否存在'''
         try:
@@ -155,31 +142,25 @@ class MainPage:
         except AssertionError:
             print('文字判定不对,错误字体{}'.format(testname))
 
-    def assert_not_view(self,locator,other_locator):
+    def assert_not_view(self, locator, other_locator):
         '''判断不存在元素,并创造测试分支'''
         try:
-            assert_not_exists(locator,'元素{},寻找不到，忽略此步骤'.format(locator))
-        except :
+            assert_not_exists(locator, '元素{},寻找不到，忽略此步骤'.format(locator))
+        except:
             self.poco.click(other_locator)
 
-    def assert_view(self,locator):
+    def assert_view(self, locator):
         '''判断元素是否存在'''
         try:
-            assert_exists(locator,'该元素{},寻找不到'.format(locator))
+            assert_exists(locator, '该元素{},寻找不到'.format(locator))
         except:
             print('没有找到元素{}'.format(locator))
 
     def screeen_size(self):
         '''获取当前屏幕尺寸'''
-        self.width,self.height = self.device.get_current_resolution()
-        return self.width,self.height
-
-
-
-
+        self.width, self.height = self.device.get_current_resolution()
+        return self.width, self.height
 
 
 if __name__ == '__main__':
     MainPage()
-
-

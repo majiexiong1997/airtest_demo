@@ -1,0 +1,9 @@
+["ToggleJinBi","ToggleYouHui","ToggleBangJin","ToggleNuoYa","ToggleRecharge"]
+
+
+shop:
+  - "ToggleJinBi"
+  - "ToggleYouHui"
+  - "ToggleBangJin"
+  - "ToggleNuoYa"
+  - "ToggleRecharge"

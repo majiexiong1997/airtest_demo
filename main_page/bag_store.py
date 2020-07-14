@@ -13,9 +13,8 @@ class bag_store(MainPage):
 
 
     def bag(self):
-
-        self.find("ToggleTask").child("TabSelect").click()
-        self.find("ToggleNormal").child("TabSelect").click()
+        self.find_click("ToggleTask","TabSelect")
+        self.find_click("ToggleNormal","TabSelect")
         bags = yaml_load.yaml_load(r'./yaml_setting/bag.yml')
         for bag in bags['bag']:
             self.find(bag).click()
@@ -27,7 +26,7 @@ class bag_store(MainPage):
         for goods_click in list_goods:
             goods_click.child("Icon").click()
             if js_num == 8:
-                self.find("ButtonCancel").click()
+                self.find_click("ButtonCancel")
             if js_num >= 33 and js_num <= 34:
                 # 向上滑动
                 self.up_swipe()

@@ -6,7 +6,7 @@ class start_time:
     main_activity = '.MainTabActivity'
     @print_run_time
     def count_start_time(self):
-        os.popen('adb shell pm clear {}'.format(self.main_page))
+        # os.popen('adb shell pm clear {}'.format(self.main_page))
         os.popen('adb shell am force-stop {}'.format(self.main_page))
         #手机型号
         with os.popen('adb shell getprop ro.product.model', 'r') as p:

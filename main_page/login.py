@@ -64,7 +64,6 @@ class login(MainPage):
     def gonggao(self):
         '''公告'''
         gonggao_btn = self.find("ButtonOk").child("Text").attr('text')
-
         try:
             assert_equal(gonggao_btn,'我知道了','测试是否打开公告')
         except AssertionError:
@@ -74,15 +73,14 @@ class login(MainPage):
     def download(self):
         '''扩展包下载'''
         self.find("ButtonExResource").click()
-        self.find("ButtonYes").click()
-        self.wait_start_find("ButtonYes")
-        self.find("ButtonYes").click()
+        self.find_click("ButtonYes")
+        self.find_click("ButtonYes")
         start_app(self.main_package)
-        self.wait_start_find("ButtonServer")
+        self.find("ButtonServer").wait_for_appearance()
         return self
     def support(self):
         '''客服'''
-        self.find("ButtonService").click()
+        self.find_click("ButtonService")
         start_app(self.main_package)
 
         return self
@@ -103,9 +101,7 @@ class login(MainPage):
             self.find("ChoSex_Female").click()
         self.find("RdmNameBtn").click()
         self.find("OkBtn").click()
-
-        self.wait_start_find("ButtonEnterGame")
-        self.find("ButtonEnterGame").click()
+        self.find_click("ButtonEnterGame")
         if self.find("ChatPanel").child("ImageBG").exists():
             self.find("ChatPanel").child("ImageBG").click()
             self.find("ButtonRole").click()

@@ -1,0 +1,7 @@
+rank_list = ["TabPersonal","TabCorps","TabActivity","TabCopy"]
+
+rank_list:
+  - "TabPersonal"
+  - "TabCorps"
+  - "TabActivity"
+  - "TabCopy"
