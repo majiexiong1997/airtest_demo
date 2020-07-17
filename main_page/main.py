@@ -7,40 +7,45 @@ from main_page.login import *
 from main_page.sec_face import *
 from main_page.bag_store import *
 from main_page.group import *
+from main_page.test_email import *
 
 
 class Main(MainPage):
 
-    #登录
-    def login_sec(self):
-        self.find("ButtonLogin").click()
-        return login()
-    #首次登录
-    def login_frist(self):
-        return login()
-    #公告
-    def gonggao(self):
-        self.find("ButtonNotice").click()
-        return login()
-    #二级界面
     def sec_face(self):
+        '''二级界面'''
         return sec_face()
-    #背包
+
     def bag_store(self):
-        self.find('ButtonBag').click()
+        '''背包'''
+        self.find_click('ButtonBag')
         return bag_store()
-    #技能
+
     def skill(self):
-        self.find('ButtonSkill').click()
+        '''技能'''
+        self.find_click('ButtonSkill')
         return skill()
+
     def rank(self):
-        self.find('ButtonRank').click()
+        '''排行榜'''
+        self.find_click('ButtonRank')
         return rank()
+
     def more_activity(self):
         '''更多活动'''
-        self.find('ButtonMoreActivity').click()
+        self.find_click('ButtonMoreActivity')
         return more_activity()
+
     def group(self):
         '''成长'''
-        self.find('ButtonHandbook').click()
+        self.find_click('ButtonHandbook')
         return group()
+
+    def email(self):
+        '''邮件'''
+        self.find_click("ButtonMail")
+        return Email()
+
+
+if __name__ == '__main__':
+    sec_face().sec_face_test()

@@ -4,7 +4,7 @@ from airtest.core.android.adb import ADB
 from airtest.core.api import *
 from poco.drivers.unity3d import UnityPoco
 from airtest.report.report import simple_report
-
+from main_page.yaml_setting import yaml_load
 
 class MainPage:
     main_package = "shangyoo.noahmobile.com"
@@ -12,6 +12,7 @@ class MainPage:
     package_path = r'C:\Users\majiexiong\Desktop\shangyoo.noahmobile.com_15.2.291.apk'
 
     def __init__(self):
+        '''初始化设备'''
         adb = ADB()
         device_list = adb.devices()
         deviceNum = len(device_list) >= 1
@@ -23,27 +24,37 @@ class MainPage:
             self.check_app()
             self.setting()
 
+    def authorization(self):
+        '''第一次授权'''
+        f = yaml_load.yaml_load(r'../quanxian.yml')
+        f = list(set(f['quanxian']))
+        for i in f:
+            print('adb shell pm grant {} {}'.format(self.main_package,i))
+            os.popen('adb shell pm grant {} {}'.format(self.main_package,i))
+
     def check_app(self):
+        '''检查app'''
         list_app = self.device.list_app()
         if self.main_package not in list_app:
             print('安装包体中')
             self.device.install_app(self.package_path, self.main_package)
+            self.authorization()
             start_app(self.main_package)
             time.sleep(10)
             self.poco = UnityPoco()
         else:
             print('包体已安装')
-
             start_app(self.main_package)
             time.sleep(10)
             self.poco = UnityPoco()
 
     def setting(self):
-
+        '''全局设置'''
         ST.FIND_TIMEOUT = 30  # 隐式等待
         ST.SNAPSHOT_QUALITY = 70  # 图片精度
 
     def report(self):
+        '''报告生成'''
         simple_report(__file__, logpath=r'C:\Users\majiexiong\PycharmProjects\airtest_demo\center\log',
                       output=r'C:\Users\majiexiong\PycharmProjects\airtest_demo\center\log\log.html')
 
@@ -69,7 +80,7 @@ class MainPage:
         return self.find(*element).long_click()
 
     def find_chirden(self, *element):
-        '''基本查找子节点所有孩子'''
+        '''基本查找子节点所有子节点'''
         return self.find(*element).children()
 
     def find_text(self, *element):

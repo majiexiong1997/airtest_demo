@@ -8,12 +8,6 @@ from main_page.yaml_setting import yaml_load
 
 class login(MainPage):
 
-
-    def quanxian(self):
-        for i in range(0,5):
-            touch(Template(r"./test_img/tpl1593331724433.png", record_pos=(-0.001, 0.037),
-                           resolution=(self.screeen_size())))
-
     def login_sec(self):
         '''二次登录'''
         self.find_click("ButtonLogin")

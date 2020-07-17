@@ -7,6 +7,7 @@ from main_page.main import Main
 
 from airtest.aircv.keypoint_base import *
 class TestXuanfu:
+    '''总控'''
     def setup(self):
         self.main = Main()
     # def test_login_frist(self):
@@ -20,6 +21,7 @@ class TestXuanfu:
     # def test_skill(self):
     #     self.main = Main().skill().test_skill()
     @print_run_time
+
     def test_group(self):
         self.main = Main().group().target().active().referrals().getback().other().today()
     def teardown(self):
