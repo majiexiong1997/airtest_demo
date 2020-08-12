@@ -13,11 +13,11 @@ class PdjsMainPage:
 
     def __init__(self):
         '''初始化设备'''
-        adb = ADB()
         self.device = connect_device(self.main_phone)
         auto_setup(__file__, logdir=False, devices=self.main_phone)
         self.poco = UnityPoco()
         self.setting()
+        self.start_app()
 
     # def authorization(self):
     #     '''第一次授权'''
@@ -89,13 +89,6 @@ class PdjsMainPage:
         end_pt = (self.width * 0.7, self.height * 0.3)
         swipe(start_pt, end_pt)
 
-    def up_swipe_for_rank(self):
-        '''排行榜上滑'''
-        self.width, self.height = self.device.get_current_resolution()
-        start_pt = (self.width * 0.3, self.height * 0.7)
-        end_pt = (self.width * 0.3, self.height * 0.3)
-        swipe(start_pt, end_pt)
-
     def down_swipe(self):
         '''下滑'''
         self.width, self.height = self.device.get_current_resolution()
@@ -110,13 +103,6 @@ class PdjsMainPage:
         end_pt = (self.width * 0.7, self.height / 2)
         swipe(start_pt, end_pt)
 
-    def left_swipe_for_rank(self):
-        '''排行榜左滑'''
-        self.width, self.height = self.device.get_current_resolution()
-        start_pt = (self.width * 0.3, self.height * 0.15)
-        end_pt = (self.width * 0.7, self.height / 0.15)
-        swipe(start_pt, end_pt)
-
     def right_swipe(self):
         '''右滑'''
         self.width, self.height = self.device.get_current_resolution()
@@ -124,18 +110,18 @@ class PdjsMainPage:
         end_pt = (self.width * 0.3, self.height / 2)
         swipe(start_pt, end_pt)
 
-    def up_swipe_by_skill(self):
-        '''技能上滑'''
-        self.width, self.height = self.device.get_current_resolution()
-        start_pt = (self.width * 0.3, self.height * 0.7)
-        end_pt = (self.width * 0.3, self.height * 0.3)
-        swipe(start_pt, end_pt)
-
     def click_center(self):
         '''点击屏幕中央'''
         self.width, self.height = self.device.get_current_resolution()
 
         self.poco.click([0.1, 0.5])
+
+    def start_app(self):
+        '''
+        启动app
+        :return:
+        '''
+        start_app(self.main_package)
 
     def stop_app(self):
         '''停止app'''
@@ -169,4 +155,4 @@ class PdjsMainPage:
 
 
 if __name__ == '__main__':
-    MainPage()
+    PdjsMainPage()
