@@ -5,7 +5,7 @@ from main_page.yaml_setting import yaml_load
 
 
 class sec_face(MainPage):
-    list_sec = yaml_load.yaml_load(r'./yaml_setting/sec_face.yml')
+    list_sec = yaml_load.yaml_load(r'C:\Users\majiexiong\PycharmProjects\airtest_demo\main_page\yaml_setting\sec_face.yml')
 
     def sec_face_test(self):
         '''二级界面'''
@@ -61,9 +61,6 @@ class sec_face(MainPage):
 
 
 if __name__ == '__main__':
-    sec_face().Title()
-    sec_face().Equip()
-    sec_face().Information()
-    sec_face().Honor()
+    sec_face().sec_face_test()
 
 

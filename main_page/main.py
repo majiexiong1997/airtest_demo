@@ -2,6 +2,7 @@ from center.main_page import MainPage
 from main_page.more_activity import more_activity
 
 from main_page.rank import rank
+from main_page.shop import shop
 from main_page.skill import skill
 from main_page.login import *
 from main_page.sec_face import *
@@ -45,6 +46,12 @@ class Main(MainPage):
         '''邮件'''
         self.find_click("ButtonMail")
         return Email()
+    def close(self):
+        '''关闭'''
+        self.find_click("ButtonClose")
+    def shop(self):
+        self.find_click("ButtonShopMall")
+        return shop()
 
 
 if __name__ == '__main__':

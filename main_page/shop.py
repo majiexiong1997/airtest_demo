@@ -1,13 +1,13 @@
 from center.main_page import MainPage
 from airtest.core.api import *
 from main_page.yaml_setting import yaml_load
-
+import sys
 
 class shop(MainPage):
 
     def shop_test(self):
         # 纵向标签
-        y_btn = yaml_load.yaml_load('./yaml_setting/shop.yml')
+        y_btn = yaml_load.yaml_load(r'C:\Users\majiexiong\PycharmProjects\airtest_demo\main_page\yaml_setting\shop.yml')
         for y in y_btn['shop']:
             print(y)
             self.find_click(y)
@@ -39,9 +39,9 @@ class shop(MainPage):
                     #
                     #     if num % 8 == 0:
                     #         self.up_swipe()
-        moneys = self.find_chirden("UIShopMallView", "ToggleLevel3")
-        for money in moneys:
-            money.child('Tab').click()
+        # moneys = self.find_chirden("UIShopMallView", "ToggleLevel3")
+        # for money in moneys:
+        #     money.child('Tab').click()
 
         # pass
 
